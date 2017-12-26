@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     private var engine = CalculatorEngine()
     private var inProgress = true
     private var floatDisplay = false
-    private var displayedValue:Double{ //Computed property
+    private var displayedValue:Double{                  //Computed property
         get{
             return(Double(display.text!))!
         }
