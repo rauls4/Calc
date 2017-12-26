@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     private var engine = CalculatorEngine()
     private var inProgress = true
     private var floatDisplay = false
+   
+    
     private var displayedValue:Double{                  //Computed property
         get{
             return(Double(display.text!))!
@@ -66,7 +68,9 @@ class ViewController: UIViewController {
                     inProgress = true
                 }
                 engine.pendingOperation = nil               //We just equated so there is no pending operation
+                
             default:
+                
                 if inProgress {
                     engine.updateStackWithValue(value: displayedValue)
                     if(engine.operandStack.count > 1 &&  engine.pendingOperation != nil){
