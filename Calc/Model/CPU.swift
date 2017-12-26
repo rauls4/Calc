@@ -12,14 +12,9 @@ class CalculatorEngine: NSObject
 {
     var operandStack = Array<Double>() //array
     var pendingOperation:String?
-
+    
     func updateStackWithValue(value: Double)
     { self.operandStack.append(value) }
-    
-    
-    func repeatLast() -> Double{
-        return(self.operate(operation: pendingOperation!))
-    }
     
     func reset(){
         operandStack = Array<Double>()
@@ -36,13 +31,12 @@ class CalculatorEngine: NSObject
             return self.operandStack.removeLast() * self.operandStack.removeLast()
         }
         
-        
     case "÷":
-     
+        
         if operandStack.count >= 2 {
             return self.operandStack.removeFirst() / self.operandStack.removeLast()
         }
-
+        
     case "+":
         if operandStack.count >= 2 {
             return self.operandStack.removeLast() + self.operandStack.removeLast()
