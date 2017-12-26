@@ -47,7 +47,6 @@ class CalculatorEngine: NSObject
             return self.operandStack.removeFirst() - self.operandStack.removeLast()
         }
         
-        
     default:break
         }
         return 0.0

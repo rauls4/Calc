@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var display: UILabel!
     
     //MARK: -Vars
-    var engine = CalculatorEngine()
+    private var engine = CalculatorEngine()
     private var inProgress = true
     private var floatDisplay = false
     private var displayedValue:Double{ //Computed property
@@ -112,4 +112,3 @@ class ViewController: UIViewController {
         inProgress = true
     }
 }
-
