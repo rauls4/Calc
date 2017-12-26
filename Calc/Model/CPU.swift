@@ -8,53 +8,47 @@
 
 import Foundation
 
-class CalculatorEngine: NSObject
+class CalculatorEngine
 {
     var operandStack = Array<Double>() //array
     var pendingOperation:String?
-
+    
     func updateStackWithValue(value: Double)
-    { self.operandStack.append(value) }
-    
-    
-    func repeatLast() -> Double{
-        return(self.operate(operation: pendingOperation!))
+    {
+        self.operandStack.append(value)
     }
     
     func reset(){
         operandStack = Array<Double>()
     }
     
-    func operate(operation: String) ->Double
+    func operate(operation: String) ->Double {
+        switch operation {
         
-    { switch operation
-        
-    {
-        
-    case "×":
-        if operandStack.count >= 2 {
-            return self.operandStack.removeLast() * self.operandStack.removeLast()
-        }
-        
-        
-    case "÷":
-     
-        if operandStack.count >= 2 {
-            return self.operandStack.removeFirst() / self.operandStack.removeLast()
-        }
-
-    case "+":
-        if operandStack.count >= 2 {
-            return self.operandStack.removeLast() + self.operandStack.removeLast()
-        }
-        
-    case "−":
-        if operandStack.count >= 2 {
-            return self.operandStack.removeFirst() - self.operandStack.removeLast()
-        }
-        
-        
-    default:break
+        case "×":
+            if operandStack.count >= 2 {
+                return self.operandStack.removeLast() * self.operandStack.removeLast()
+            }
+            
+        case "÷":
+            
+            if operandStack.count >= 2 {
+                return self.operandStack.removeFirst() / self.operandStack.removeLast()
+            }
+            
+        case "+":
+            if operandStack.count >= 2 {
+                return self.operandStack.removeLast() + self.operandStack.removeLast()
+            }
+            
+        case "−":
+            if operandStack.count >= 2 {
+                return self.operandStack.removeFirst() - self.operandStack.removeLast()
+            }
+            
+        default:
+            debugPrint("No such operation found")
+            break
         }
         return 0.0
     }
